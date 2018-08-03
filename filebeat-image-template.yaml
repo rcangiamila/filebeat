@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: filebeat
+  name: filebeat
+spec:
+  tags:
+  - annotations:
+      description: Provides a Filebeat Service on CentOS 7.
+      openshift.io/display-name: Filebeat (Latest)
+      tags: hidden,instant-app,filebeat
+    from:
+      kind: ImageStreamTag
+      name: "6.3.2"
+    name: latest
+    referencePolicy:
+      type: Local
+  - annotations:
+      description: Provides a Filebeat Service on CentOS 7.
+      openshift.io/display-name: Filebeat 6.3.2
+      tags: hidden,instant-app,filebeat
+      version: "6.3.2"
+    from:
+      kind: DockerImage
+      name: "docker.elastic.co/beats/filebeat:6.3.2"
+    name: "6.3.2"
+    referencePolicy:
+      type: Local

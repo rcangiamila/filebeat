@@ -3,9 +3,9 @@ FROM centos:7
 
 RUN yum update -y && yum install -y curl && yum clean all
 
-RUN curl -Lso - https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.2-linux-x86_64.tar.gz | \
+RUN curl -Lso - https://snapshots.elastic.co/downloads/beats/filebeat/filebeat-7.0.0-alpha1-SNAPSHOT-linux-x86_64.tar.gz | \
       tar zxf - -C /tmp && \
-    mv /tmp/filebeat-6.3.2-linux-x86_64 /usr/share/filebeat
+    mv /tmp/filebeat-7.0.0-alpha1-SNAPSHOT-linux-x86_64 /usr/share/filebeat
 
 
 ENV ELASTIC_CONTAINER true
@@ -33,7 +33,7 @@ USER filebeat
 LABEL org.label-schema.schema-version="1.0" \
   org.label-schema.vendor="Elastic" \
   org.label-schema.name="filebeat" \
-  org.label-schema.version="6.3.2" \
+  org.label-schema.version="7.0.0-alpha1-SNAPSHOT" \
   org.label-schema.url="https://www.elastic.co/products/beats/filebeat" \
   org.label-schema.vcs-url="https://github.com/elastic/beats-docker" \
 license="Elastic License"
